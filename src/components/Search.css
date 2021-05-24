@@ -26,7 +26,9 @@
   justify-content: center;
   margin-top: 20px;
 }
-
+.search__button.hidden {
+  display: none;
+}
 .search__btn {
   margin-right: 10px !important;
   background-color: rgb(202, 202, 202) !important;
