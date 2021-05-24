@@ -13,13 +13,16 @@ import RoomIcon from '@material-ui/icons/Room';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 //https://developers.google.com/custom-search/v1/using_rest
 // https://cse.google.com/cse/create/new
+import API_KEY from '../key'
 
 function SearchPage() {
     const [{ searchTerm }, dispatch] = useStateValue()
-    // const { data } = useGoogleSearch(searchTerm)  //live google search API CALL
+
+    // const data = useGoogleSearch(searchTerm)  //live google search API CALL
     // getting the results from our file
-    const data = response;
-    // console.log('DATA--->>', data);
+    const data = response.items; //STTORING RESULT FROM GOOGLE API 
+    // console.log('DATA--->>', data.items);
+    // console.log('DATA ITEMS--->>', data.items);
     return (
         <div className='searchPage'>
             <div className='searchPage__header'>
@@ -71,10 +74,34 @@ function SearchPage() {
                     </div>
                 </div>
             </div>
-            <div className='searchPage__results'>
 
+            <div className='searchPage__results'>
+                {
+                    data?.map((item) => {
+                        return (
+                            <div className='searchPage__result' key={item.title} >
+                                <img src={item.pagemap?.cse_thumbnail[0]?.src} alt='' />
+                                <div>
+                                    <Link to={`/${item.displayLink}`}>
+                                        {item.displayLink}
+                                    </Link>
+
+                                    <Link to={`/${item.title}`} className='searchPage__resultTitle'>
+                                        <h2>{item.title}</h2>
+                                    </Link>
+
+                                    <p className='searchPage__description'>
+                                        {item.snippet}
+                                    </p>
+                                </div>
+
+                            </div>
+                        )
+                    })
+                }
             </div>
-        </div>
+
+        </div >
     )
 }
 

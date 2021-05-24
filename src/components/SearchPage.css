@@ -42,3 +42,26 @@
   text-decoration: none;
   color: gray;
 }
+.searchPage__result {
+  margin: 40px 0;
+  display: flex;
+}
+.searchPage__result img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  margin-right: 20px;
+}
+.searchPage__results {
+  max-width: 850px;
+  margin-left: 240px;
+  margin-bottom: 100px;
+  margin-top: 20px;
+}
+.searchPage__result > a {
+  text-decoration: none;
+  color: gray;
+}
+.searchPage__resultTitle h2 {
+  font-weight: 400;
+}
