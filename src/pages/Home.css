@@ -1,0 +1,37 @@
+.home__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.home__header--left {
+  display: flex;
+  align-items: center;
+}
+
+.home__header--left > a {
+  margin-right: 20px;
+  text-decoration: none;
+  color: black;
+}
+
+.home__header--right {
+  display: flex;
+  align-items: center;
+}
+.home__header--right > a {
+  display: flex;
+  margin-right: 20px;
+  text-decoration: none;
+  color: black;
+}
+.home__body {
+  display: grid;
+  place-items: center;
+  margin-top: 150px;
+}
+.home__body > img {
+  height: 100px;
+  object-fit: contain;
+}
