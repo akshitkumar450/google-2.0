@@ -18,10 +18,10 @@ import API_KEY from '../key'
 function SearchPage() {
     const [{ searchTerm }, dispatch] = useStateValue()
 
-    // const data = useGoogleSearch(searchTerm)  //live google search API CALL
+    const { data } = useGoogleSearch(searchTerm)  //live google search API CALL
     // getting the results from our file
-    const data = response.items; //STTORING RESULT FROM GOOGLE API 
-    // console.log('DATA--->>', data.items);
+    // const data = response.items; //STTORING RESULT FROM GOOGLE API 
+    console.log('DATA--->>', data?.items);
     // console.log('DATA ITEMS--->>', data.items);
     return (
         <div className='searchPage'>
@@ -77,10 +77,10 @@ function SearchPage() {
 
             <div className='searchPage__results'>
                 {
-                    data?.map((item) => {
+                    data?.items?.map((item) => {
                         return (
                             <div className='searchPage__result' key={item.title} >
-                                <img src={item.pagemap?.cse_thumbnail[0]?.src} alt='' />
+                                {/**<img src={item?.pagemap?.cse_image[0]?.src} alt='' />*/}
                                 <div>
                                     <Link to={`/${item.displayLink}`}>
                                         {item.displayLink}
